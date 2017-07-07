@@ -32,7 +32,7 @@ export default (opts) => {
             _window = _document.defaultView;
             if (!_window.getSelection) {
                 // eslint-disable-next-line no-console
-                console.warn("share-this: Selection API isn't supported");
+                console.warn("highlight-share: Selection API isn't supported");
                 return false;
             }
 
