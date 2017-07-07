@@ -4,7 +4,7 @@ import chai, { expect } from "chai";
 import sinonChai from "sinon-chai";
 import { env } from "jsdom";
 
-import * as facebookMessengerSharer from "../../src/sharers/facebookMessenger";
+import * as facebookMessengerSharer from "../../src/sharers/facebook-messenger";
 
 chai.use(sinonChai);
 
