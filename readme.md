@@ -1,13 +1,13 @@
-share-this-expanded
+highlight-share
 ==========
 
 Medium-like text selection sharing without dependencies
 
-[![Version](http://img.shields.io/npm/v/share-this.svg)](https://www.npmjs.org/package/share-this)
-[![Build Status](https://travis-ci.org/MaxArt2501/share-this.svg?branch=master)](https://travis-ci.org/MaxArt2501/share-this)
-[![License Type](https://img.shields.io/github/license/MaxArt2501/share-this.svg)](https://img.shields.io/github/license/MaxArt2501/share-this.svg)
+[![Version](http://img.shields.io/npm/v/highlight-share.svg)](https://www.npmjs.org/package/highlight-share)
+[![Build Status](https://travis-ci.org/MaxArt2501/highlight-share.svg?branch=master)](https://travis-ci.org/anythingcodes/highlight-share)
+[![License Type](https://img.shields.io/github/license/anythingcodes/highlight-share.svg)](https://img.shields.io/github/license/anythingcodes/highlight-share.svg)
 
-![share-this in action](https://maxart2501.github.io/share-this/example.gif)
+> TODO: GIF here
 
 ## Purpose
 
@@ -27,13 +27,13 @@ All in a tiny library (less than 1.8 KB minified and gzipped, plus less than 0.5
 Via npm:
 
 ```bash
-$ npm install --save share-this-expanded
+$ npm install --save highlight-share
 ```
 
 Via bower:
 
 ```bash
-$ bower install share-this-expanded
+$ bower install highlight-share
 ```
 
 
@@ -43,24 +43,24 @@ The library is in UMD format, so feel free to use the module loader of your choi
 
 ```javascript
 // CommonJS
-const shareThisExpanded = require("share-this-expanded");
+const highlightShare = require("highlight-share");
 
 // ES6
-import shareThisExpanded from "share-this-expanded";
+import highlightShare from "highlight-share";
 
 // AMD
-define([ "share-this-expanded" ], shareThisExpanded => {
+define([ "highlight-share" ], highlightShare => {
     // ...
 });
 
 // Global
-var shareThisExpanded = window.ShareThisExpanded;
+var highlightShare = window.highlightShare;
 ```
 
-`shareThis` is a factory for text selection sharing functionality:
+`highlightShare` is a factory for text selection sharing functionality:
 
 ```javascript
-const selectionShare = shareThisExpanded({
+const selectionShare = highlightShare({
     selector: "#shareable",
     sharers: mySharerList
 });
@@ -71,7 +71,7 @@ selectionShare.init();
 These are the options for the factory:
 
 * `document`: the `Document` object to apply the sharing functionality (default: `document`);
-* `popoverClass`: the class name (or names) to be used in the root element of the popover (default: `share-this-popover`);
+* `popoverClass`: the class name (or names) to be used in the root element of the popover (default: `highlight-share-popover`);
 * `selector`: restricts the shared text to the contents of the elements matching `selector` (default: `"body"`);
 * `sharers`: an array of sharing channels (Twitter, Facebook, email...); see later for details;
 * `shareUrl`: a reference URL for the shared text (default: the `location` object of the `document` property);
@@ -124,24 +124,24 @@ This library provides some default sharers, that could be loaded like this:
 
 ```javascript
 // CommonJS
-const twitterSharer = require("share-this/dist/sharers/twitter");
+const twitterSharer = require("highlight-share/dist/sharers/twitter");
 
 // ES6
-import * as twitterSharer from "share-this/dist/sharers/twitter";
+import * as twitterSharer from "highlight-share/dist/sharers/twitter";
 
 // AMD
-define([ "share-this/dist/sharers/twitter" ], twitterSharer => {
+define([ "highlight-share/dist/sharers/twitter" ], twitterSharer => {
     // ...
 });
 
 // Global
-const twitterSharer = window.ShareThisViaTwitter;
+const twitterSharer = window.highlightShareViaTwitter;
 ```
 
 Then you can use the sharers of your choice:
 
 ```javascript
-const selectionShare = shareThisExpanded({
+const selectionShare = highlightShare({
     sharers: [ twitterSharer ]
 });
 ```
@@ -155,13 +155,12 @@ The following are the default basic sharers provided by the package:
 
 Site     | File location               | Name        | Global variable
 ---------|-----------------------------|-------------|-----------------------
-Twitter  | `dist/sharers/twitter.js`   | `twitter`   | `ShareThisViaTwitter`
-Facebook | `dist/sharers/facebook.js`  | `facebook`  | `ShareThisViaFacebook`
-LinkedIn | `dist/sharers/linked-in.js` | `linked-in` | `ShareThisViaLinkedIn`
-Reddit   | `dist/sharers/reddit.js`    | `reddit`    | `ShareThisViaReddit`
-Email    | `dist/sharers/email.js`     | `email`     | `ShareThisViaEmail`
-
-You can find a couple more on the [presentation page](https://maxart2501.github.io/share-this/) of the library.
+Twitter  | `dist/sharers/twitter.js`   | `twitter`   | `highlightShareViaTwitter`
+Facebook | `dist/sharers/facebook.js`  | `facebook`  | `highlightShareViaFacebook`
+Facebook Messenger | `dist/sharers/facebook-messenger.js`  | `facebook`  | `highlightShareViaFacebookBMessenger`
+LinkedIn | `dist/sharers/linked-in.js` | `linked-in` | `highlightShareViaLinkedIn`
+Reddit   | `dist/sharers/reddit.js`    | `reddit`    | `highlightShareViaReddit`
+Email    | `dist/sharers/email.js`     | `email`     | `highlightShareViaEmail`
 
 
 ## Developer friendly
@@ -191,7 +190,7 @@ Notes:
 
 ## Mobile devices
 
-On mobile browsers, you might not want to have `share-this` to interfere with native sharing features, so you might want it disabled. In order
+On mobile browsers, you might not want to have `highlight-share` to interfere with native sharing features, so you might want it disabled. In order
 to it, you might want to do something like this:
 
 ```js
@@ -204,9 +203,9 @@ if (!window.matchMedia
 (The rationale of this is that the device's primary pointer is "coarse" - that includes touch devices, but also Kinect and WiiMotes - then the
 device *probably* features a native sharing interface. See [CanIUse](http://caniuse.com/#feat=css-media-interaction) for details about Interaction
 Media Features. If the browser doesn't support `window.matchMedia` altogether, then it's *probably* a PC with a mouse/trackpad, so it's fine to
-initialize `share-this`.)
+initialize `highlight-share`.)
 
-Keep in mind that native sharing features let the *device* do the job, using apps or services installed on it, `share-this` keep this task on the
+Keep in mind that native sharing features let the *device* do the job, using apps or services installed on it, `highlight-share` keep this task on the
 page, which means it could offer "sharing" capabilities that the device may not have (e.g.: "save to my account's notes" or "pronounce this using
 voice synthesis"), so you might want to show *both* native and custom sharing interfaces.
 
@@ -221,4 +220,4 @@ voice synthesis"), so you might want to show *both* native and custom sharing in
 
 ## License
 
-MIT @ Massimo Artizzu 2016-2017. See [LICENSE](LICENSE).
+MIT @ Liz Shaw 2016-2017. See [LICENSE](LICENSE).

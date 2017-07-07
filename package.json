@@ -1,18 +1,19 @@
 {
-  "name": "share-this-expanded",
+  "name": "highlight-share",
   "version": "1.2.3",
   "description": "Medium-like text selection sharing without dependencies",
   "keywords": [
+    "highlight",
     "medium",
     "popover",
     "selection",
     "share",
+    "sharepoint",
     "sharing",
-    "highlight",
     "text"
   ],
-  "main": "dist/share-this.js",
-  "module": "src/share-this.js",
+  "main": "dist/highlight-share.js",
+  "module": "src/highlight-share.js",
   "author": {
     "name": "Liz Shaw",
     "email": "eshaw@hubspot.com"
@@ -27,10 +28,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/anythingcodes/share-this.git"
+    "url": "https://github.com/anythingcodes/highlight-share.git"
   },
   "bugs": {
-    "url": "https://github.com/anythingcodes/share-this/issues"
+    "url": "https://github.com/anythingcodes/highlight-share/issues"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.18.0",
