@@ -1,4 +1,4 @@
-share-this
+share-this-expanded
 ==========
 
 Medium-like text selection sharing without dependencies
@@ -27,13 +27,13 @@ All in a tiny library (less than 1.8 KB minified and gzipped, plus less than 0.5
 Via npm:
 
 ```bash
-$ npm install --save share-this
+$ npm install --save share-this-expanded
 ```
 
 Via bower:
 
 ```bash
-$ bower install share-this
+$ bower install share-this-expanded
 ```
 
 
@@ -43,24 +43,24 @@ The library is in UMD format, so feel free to use the module loader of your choi
 
 ```javascript
 // CommonJS
-const shareThis = require("share-this");
+const shareThisExpanded = require("share-this-expanded");
 
 // ES6
-import shareThis from "share-this";
+import shareThisExpanded from "share-this-expanded";
 
 // AMD
-define([ "share-this" ], shareThis => {
+define([ "share-this-expanded" ], shareThisExpanded => {
     // ...
 });
 
 // Global
-var shareThis = window.ShareThis;
+var shareThisExpanded = window.ShareThisExpanded;
 ```
 
 `shareThis` is a factory for text selection sharing functionality:
 
 ```javascript
-const selectionShare = shareThis({
+const selectionShare = shareThisExpanded({
     selector: "#shareable",
     sharers: mySharerList
 });
@@ -141,7 +141,7 @@ const twitterSharer = window.ShareThisViaTwitter;
 Then you can use the sharers of your choice:
 
 ```javascript
-const selectionShare = shareThis({
+const selectionShare = shareThisExpanded({
     sharers: [ twitterSharer ]
 });
 ```

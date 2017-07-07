@@ -7,7 +7,9 @@ export function getOffsetScroll(_window) {
 
 let matchFunc;
 export function matches(element, selector) {
-    if (!matchFunc) matchFunc = getMatchFunctionName(element);
+    if (!matchFunc) {
+        matchFunc = getMatchFunctionName(element);
+    }
     return element[matchFunc](selector);
 }
 

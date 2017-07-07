@@ -12,7 +12,7 @@ export function stylePopover(popover, range, options) {
 
     const style = popover.style;
     if (isForward) {
-        style.right = `${_document.documentElement.clientWidth - endLineRect.right + offsetScroll.left}px`;
+        style.right = `${_document.documentElement.clientWidth - (endLineRect.right + offsetScroll.left)}px`;
     } else {
         style.left = `${endLineRect.left - offsetScroll.left}px`;
     }
