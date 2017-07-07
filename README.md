@@ -7,7 +7,7 @@ Medium-like text selection sharing without dependencies
 [![Build Status](https://travis-ci.org/MaxArt2501/highlight-share.svg?branch=master)](https://travis-ci.org/anythingcodes/highlight-share)
 [![License Type](https://img.shields.io/github/license/anythingcodes/highlight-share.svg)](https://img.shields.io/github/license/anythingcodes/highlight-share.svg)
 
-> TODO: GIF here
+> TODO - GIF here
 
 ## Purpose
 

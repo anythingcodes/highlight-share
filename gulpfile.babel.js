@@ -17,19 +17,19 @@ import eslint from "gulp-eslint";
 import { camelize } from "./src/utils";
 
 gulp.task("js", () => {
-    buildJsEntry("./src/core.js", "share-this", "ShareThis", "dist/");
+    buildJsEntry("./src/core.js", "highlight-share", "HighlightShare", "dist/");
 });
 
 gulp.task("sharers", () => {
     readdirSync("./src/sharers").forEach((file) => {
         const name = file.replace(/\.js$/i, "");
         if (name === file) return;
-        buildJsEntry(`./src/sharers/${file}`, name, `ShareThisVia${camelize(name)}`, "dist/sharers/");
+        buildJsEntry(`./src/sharers/${file}`, name, `HighlightShareVia${camelize(name)}`, "dist/sharers/");
     });
 });
 
 gulp.task("less", () => {
-    gulp.src("./style/less/share-this.less")
+    gulp.src("./style/less/highlight-share.less")
         .pipe(less())
         .pipe(cssnano({ autoprefixer: false }))
         .pipe(gulp.dest("dist/"))

@@ -1,17 +1,17 @@
 {
-  "name": "share-this",
-  "homepage": "https://github.com/MaxArt2501/share-this",
+  "name": "highlight-share",
+  "homepage": "https://github.com/anythingcodes/highlight-share",
   "authors": [
-    "Massimo Artizzu <maxart.x@gmail.com>"
+    "Liz Shaw <eshaw@hubspot.com>"
   ],
   "description": "Medium-like text selection sharing without dependencies",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MaxArt2501/share-this.git"
+    "url": "https://github.com/anythingcodes/highlight-share.git"
   },
   "main": [
-      "dist/share-this.js",
-      "dist/share-this.css"
+      "dist/highlight-share.js",
+      "dist/highlight-share.css"
   ],
   "moduleType": [
     "amd",
