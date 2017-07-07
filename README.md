@@ -205,8 +205,7 @@ device *probably* features a native sharing interface. See [CanIUse](http://cani
 Media Features. If the browser doesn't support `window.matchMedia` altogether, then it's *probably* a PC with a mouse/trackpad, so it's fine to
 initialize `highlight-share`.)
 
-Keep in mind that native sharing features let the *device* do the job, using apps or services installed on it, `highlight-share` keep this task on the
-page, which means it could offer "sharing" capabilities that the device may not have (e.g.: "save to my account's notes" or "pronounce this using
+Keep in mind that native sharing features let the *device* do the job, using apps or services installed on it, `highlight-share` keep this task on the page, meaning it could offer "sharing" capabilities that the device may not have (e.g.: "save to my account's notes" or "pronounce this using
 voice synthesis"), so you might want to show *both* native and custom sharing interfaces.
 
 
