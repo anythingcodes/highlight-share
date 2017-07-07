@@ -1,26 +1,14 @@
-export function render(text, rawText, refUrl) {
-    const url = this.getShareUrl(refUrl);
-
-    return `<a href="${url}" target="_blank" rel="noopener nofollow noreferrer">`
-        + "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1.5 1.5 16 16\">"
-            + "<path d=\"M8.546 16V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 "
-                + "0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42"
-                + "h-2.08V16\" fill=\"currentcolor\"/>"
-        + "</svg></a>";
-}
-
-export function getShareUrl(refUrl) {
-    return `fb-messenger://share/?link=${encodeURIComponent(refUrl)}&app_id=123456789`;
-}
-
-export function action(event, item) {
-    event.preventDefault();
-    const popup = item.ownerDocument.defaultView.open(
-        item.firstChild.href,
-        "share_via_facebook",
-        "height=440,location=no,menubar=no,scrollbars=no,status=no,toolbar=no,width=640"
-    );
-    popup.opener = null;
+export class FacebookMessenger {
+    constructor(appId) {
+        this.appId = appId;
+    }
+    render(text, rawText, refUrl) {
+        const url = this.getShareUrl("", refUrl);
+        return `<a href="${url}" target="_blank" rel="noopener nofollow noreferrer"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><g><path d="M16 6C9.925 6 5 10.56 5 16.185c0 3.205 1.6 6.065 4.1 7.932V28l3.745-2.056c1 .277 2.058.426 3.155.426 6.075 0 11-4.56 11-10.185C27 10.56 22.075 6 16 6zm1.093 13.716l-2.8-2.988-5.467 2.988 6.013-6.383 2.868 2.988 5.398-2.987-6.013 6.383z" fill-rule="evenodd"></path></g></svg></a>`;
+    }
+    getShareUrl(text, refUrl) {
+        return `http://www.facebook.com/dialog/send?app_id=${this.appId}&link=${refUrl}&redirect_uri=${refUrl}`;
+    }
 }
 
 export const name = "facebookMessenger";
