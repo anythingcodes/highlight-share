@@ -157,10 +157,11 @@ Site     | File location               | Name        | Global variable
 ---------|-----------------------------|-------------|-----------------------
 Twitter  | `dist/sharers/twitter.js`   | `twitter`   | `highlightShareViaTwitter`
 Facebook | `dist/sharers/facebook.js`  | `facebook`  | `highlightShareViaFacebook`
-Facebook Messenger | `dist/sharers/facebook-messenger.js`  | `facebook`  | `highlightShareViaFacebookBMessenger`
+Facebook Messenger | `dist/sharers/facebook-messenger.js`  | `facebook`  | `highlightShareViaFacebookMessenger`
 LinkedIn | `dist/sharers/linked-in.js` | `linked-in` | `highlightShareViaLinkedIn`
 Reddit   | `dist/sharers/reddit.js`    | `reddit`    | `highlightShareViaReddit`
 Email    | `dist/sharers/email.js`     | `email`     | `highlightShareViaEmail`
+Copy    | `dist/sharers/copy.js`     | `copy`     | `highlightShareViaCopy`
 
 
 ## Developer friendly
