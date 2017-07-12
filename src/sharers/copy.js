@@ -21,15 +21,10 @@ export function render(text, rawText, refUrl) {
 }
 
 export function action(event, item) {
-    console.log("action called");
     event.preventDefault();
     const li = item.firstChild;
-    console.log("li");
-    console.log(li);
     const { title } = li;
-    console.log(title);
     const placeholder = document.createElement("input");
-    // Add it to the document
     document.body.appendChild(placeholder);
     placeholder.style.display = "none";
     placeholder.setAttribute("id", "highlight-share-copy-placeholder");

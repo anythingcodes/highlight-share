@@ -117,7 +117,6 @@ export default (opts) => {
 
     function killPopover() {
         if (!popover) return;
-        console.log("killPopover");
         lifeCycle.removePopover(popover);
         popover = _undefined;
         if (isCallable(options.onClose)) {

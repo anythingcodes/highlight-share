@@ -9,8 +9,8 @@ import * as facebookMessengerSharer from "../../src/sharers/facebook-messenger";
 chai.use(sinonChai);
 
 describe("Facebook Messenger sharer", () => {
-    it("must have name 'facebookMessenger'", () => {
-        expect(facebookMessengerSharer.name).to.equal("facebookMessenger");
+    it("must have name 'facebook-messenger'", () => {
+        expect(facebookMessengerSharer.name).to.equal("facebook-messenger");
     });
 
     it("must render a link to Facebook Messenger", (done) => {
