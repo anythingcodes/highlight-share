@@ -11,7 +11,7 @@ export default (opts) => {
         document,
         selector: "body",
         sharers: [],
-        popoverClass: "share-this-popover",
+        popoverClass: "highlight-share-popover",
         transformer: raw => raw.trim().replace(/\s+/g, " ")
     }, opts || {});
 
@@ -117,7 +117,7 @@ export default (opts) => {
 
     function killPopover() {
         if (!popover) return;
-
+        console.log("killPopover");
         lifeCycle.removePopover(popover);
         popover = _undefined;
         if (isCallable(options.onClose)) {

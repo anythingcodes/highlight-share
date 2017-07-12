@@ -1,28 +1,28 @@
-@mixin share-this-transform($transformation...) {
+@mixin highlight-share-transform($transformation...) {
     -webkit-transform: $transformation;
         -ms-transform: $transformation;
             transform: $transformation;
 }
-@mixin share-this-animation($animation...) {
+@mixin highlight-share-animation($animation...) {
     -webkit-animation: $animation;
             animation: $animation;
 }
-@mixin share-this-filter($filter...) {
+@mixin highlight-share-filter($filter...) {
     -webkit-filter: $filter;
             filter: $filter;
 }
 
-@mixin share-this-on-bottom() {
+@mixin highlight-share-on-bottom() {
     &::before {
         bottom: auto;
         top: 100%;
-        border-width: 0 $share-this-arrow-size $share-this-arrow-size;
+        border-width: 0 $highlight-share-arrow-size $highlight-share-arrow-size;
         margin-top: 0;
     }
 
     > ul {
         top: 100%;
         transform: translateX(-50%);
-        margin: $share-this-arrow-size 0 0;
+        margin: $highlight-share-arrow-size 0 0;
     }
 }

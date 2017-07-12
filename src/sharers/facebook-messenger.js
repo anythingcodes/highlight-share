@@ -1,6 +1,9 @@
+export const name = "facebook-messenger";
+
 export class FacebookMessenger {
     constructor(appId) {
         this.appId = appId;
+        this.name = name;
     }
     render(text, rawText, refUrl) {
         const url = this.getShareUrl("", refUrl);
@@ -11,4 +14,3 @@ export class FacebookMessenger {
     }
 }
 
-export const name = "facebookMessenger";
