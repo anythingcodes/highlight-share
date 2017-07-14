@@ -1,5 +1,5 @@
 export function render(text, rawText, refUrl) {
-    return `<a title="'${text}' ${refUrl}" href="${refUrl}" target="_blank" rel="noopener nofollow noreferrer">
+    return `<a title="Copy" data-quote="${rawText}" href="${refUrl}" target="_blank" rel="noopener nofollow noreferrer">
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve">
                 <path d="M8.1,15.1c-0.3,0-0.5,0.2-0.5,0.5c0,0.3,0.2,0.5,0.5,0.5h8.2c0.3,0,0.5-0.2,0.5-0.5
                   c0-0.3-0.2-0.5-0.5-0.5h0H8.1C8.2,15.1,8.2,15.1,8.1,15.1L8.1,15.1z M8.1,11.7c-0.3,0-0.5,0.2-0.5,0.5c0,0.3,0.2,0.5,0.5,0.5h8.2
@@ -23,12 +23,11 @@ export function render(text, rawText, refUrl) {
 export function action(event, item) {
     event.preventDefault();
     const li = item.firstChild;
-    const { title } = li;
+    const { href } = li;
+    const quote = li.getAttribute("data-quote");
     const placeholder = document.createElement("input");
     document.body.appendChild(placeholder);
-    placeholder.style.display = "none";
-    placeholder.setAttribute("id", "highlight-share-copy-placeholder");
-    document.getElementById("highlight-share-copy-placeholder").value = title;
+    placeholder.value = `\"${quote.replace(/^\s+|\s+$/g, "")}\" ${href}`; // eslint-disable-line no-useless-escape
     placeholder.select();
     let succeed;
     try {
