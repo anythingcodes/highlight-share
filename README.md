@@ -3,8 +3,6 @@ highlight-share
 
 Medium-like text selection sharing without dependencies
 
-[![Version](http://img.shields.io/npm/v/highlight-share.svg)](https://www.npmjs.org/package/highlight-share)
-[![Build Status](https://travis-ci.org/MaxArt2501/highlight-share.svg?branch=master)](https://travis-ci.org/anythingcodes/highlight-share)
 [![License Type](https://img.shields.io/github/license/anythingcodes/highlight-share.svg)](https://img.shields.io/github/license/anythingcodes/highlight-share.svg)
 
 <img src="dist/img/demo.gif" alt="Demo of highlight share" />
