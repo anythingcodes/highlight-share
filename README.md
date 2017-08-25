@@ -32,7 +32,7 @@ $ npm install --save highlight-share
 
 ## Usage
 
-1. After installing, import the library using the module loader of your choice:
+After installing, import the library using the module loader of your choice:
 
 ```javascript
 // CommonJS
@@ -50,7 +50,7 @@ define([ 'highlight-share' ], highlightShare => {
 var highlightShare = window.highlightShare;
 ```
 
-2. Import any sharers you need:
+Import any sharers you need:
 
 ```javascript
 import * as twitterSharer from 'highlight-share/dist/sharers/twitter';
@@ -67,7 +67,7 @@ Note that Facebook Messenger also requires a Facebook app ID, for example the `a
 const messengerShare = new facebookMessengerSharer.FacebookMessenger('abc123');
 ```
 
-3. Create a variable specifying a DOM element `selector` and an array of your `sharers`:
+Create a variable specifying a DOM element `selector` and an array of your `sharers`:
 
 ```javascript
 const selectionShare = highlightShare({
