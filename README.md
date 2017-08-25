@@ -7,7 +7,8 @@ Medium-like text selection sharing without dependencies
 [![Build Status](https://travis-ci.org/MaxArt2501/highlight-share.svg?branch=master)](https://travis-ci.org/anythingcodes/highlight-share)
 [![License Type](https://img.shields.io/github/license/anythingcodes/highlight-share.svg)](https://img.shields.io/github/license/anythingcodes/highlight-share.svg)
 
-> TODO - GIF here
+<img src="dist/img/demo.gif" alt="Demo of highlight share" />
+> Demo from the <a href="http://blog.hubspot.com" target="_blank">HubSpot blog</a>
 
 ## Purpose
 
@@ -30,26 +31,19 @@ Via npm:
 $ npm install --save highlight-share
 ```
 
-Via bower:
-
-```bash
-$ bower install highlight-share
-```
-
-
 ## Usage
 
-The library is in UMD format, so feel free to use the module loader of your choice:
+1. After installing, import the library using the module loader of your choice:
 
 ```javascript
 // CommonJS
-const highlightShare = require("highlight-share");
+const highlightShare = require('highlight-share');
 
 // ES6
-import highlightShare from "highlight-share";
+import highlightShare from 'highlight-share';
 
 // AMD
-define([ "highlight-share" ], highlightShare => {
+define([ 'highlight-share' ], highlightShare => {
     // ...
 });
 
@@ -57,18 +51,39 @@ define([ "highlight-share" ], highlightShare => {
 var highlightShare = window.highlightShare;
 ```
 
-`highlightShare` is a factory for text selection sharing functionality:
+2. Import any sharers you need:
+
+```javascript
+import * as twitterSharer from 'highlight-share/dist/sharers/twitter';
+import * as facebookSharer from 'highlight-share/dist/sharers/facebook';
+import * as emailSharer from 'highlight-share/dist/sharers/email';
+import * as copySharer from 'highlight-share/dist/sharers/copy';
+import * as linkedInSharer from 'highlight-share/dist/sharers/linked-in';
+import * as facebookMessengerSharer from 'highlight-share/dist/sharers/facebook-messenger';
+```
+
+Note that Facebook Messenger also requires a Facebook app ID, for example the `abc123` string here:
+
+```javascript
+const messengerShare = new facebookMessengerSharer.FacebookMessenger('abc123');
+```
+
+3. Create a variable specifying a DOM element `selector` and an array of your `sharers`:
 
 ```javascript
 const selectionShare = highlightShare({
-    selector: "#shareable",
-    sharers: mySharerList
+    selector: '#shareable',
+    sharers: [twitterSharer, facebookSharer, emailSharer, linkedInSharer, messengerShare, copySharer]
 });
 
 selectionShare.init();
 ```
 
-These are the options for the factory:
+Note: If the `sharers` array is empty, nothing will happen.
+
+## Options
+
+The options for the `highlightShare` factory include:
 
 * `document`: the `Document` object to apply the sharing functionality (default: `document`);
 * `popoverClass`: the class name (or names) to be used in the root element of the popover (default: `highlight-share-popover`);
@@ -87,11 +102,18 @@ selectionShare.destroy();
 
 A destroyed sharing object can *not* be `init`ialized again.
 
+## What is a sharer?
 
-## Sharers
-
-A "sharer" is simply an object with just one mandatory method: `render`, that must return the HTML string of the sharing button;
+A "sharer" is an object with just one mandatory method: `render`, that must return the HTML string of the sharing button;
 and a `name` property.
+
+Note that Facebook Messenger also requires a Facebook app ID, for example the `abc123` string here:
+
+```javascript
+const messengerShare = new facebookMessengerSharer.FacebookMessenger('abc123');
+```
+
+### Sharer Functions
 
 ### `render(text, rawText, shareUrl)` (mandatory)
 
@@ -120,36 +142,6 @@ A function to be called when the user clicks/taps on the sharing button. The `ev
 
 ## Using the sharers
 
-This library provides some default sharers, that could be loaded like this:
-
-```javascript
-// CommonJS
-const twitterSharer = require("highlight-share/dist/sharers/twitter");
-
-// ES6
-import * as twitterSharer from "highlight-share/dist/sharers/twitter";
-
-// AMD
-define([ "highlight-share/dist/sharers/twitter" ], twitterSharer => {
-    // ...
-});
-
-// Global
-const twitterSharer = window.highlightShareViaTwitter;
-```
-
-Then you can use the sharers of your choice:
-
-```javascript
-const selectionShare = highlightShare({
-    sharers: [ twitterSharer ]
-});
-```
-
-Note: the `sharers` array should *not* be empty, or nothing will ever happen.
-
-The list of the sharers is also available on the `sharers` property on the popover element (e.g. passed to the `onOpen` callback), for dynamic
-runtime handling.
 
 The following are the default basic sharers provided by the package:
 
@@ -157,58 +149,57 @@ Site     | File location               | Name        | Global variable
 ---------|-----------------------------|-------------|-----------------------
 Twitter  | `dist/sharers/twitter.js`   | `twitter`   | `highlightShareViaTwitter`
 Facebook | `dist/sharers/facebook.js`  | `facebook`  | `highlightShareViaFacebook`
-Facebook Messenger | `dist/sharers/facebook-messenger.js`  | `facebook`  | `highlightShareViaFacebookMessenger`
+Facebook Messenger | `dist/sharers/facebook-messenger.js`  | `facebook-messenger`  | `highlightShareViaFacebookMessenger`
 LinkedIn | `dist/sharers/linked-in.js` | `linked-in` | `highlightShareViaLinkedIn`
 Reddit   | `dist/sharers/reddit.js`    | `reddit`    | `highlightShareViaReddit`
 Email    | `dist/sharers/email.js`     | `email`     | `highlightShareViaEmail`
 Copy    | `dist/sharers/copy.js`     | `copy`     | `highlightShareViaCopy`
 
+The list of the sharers is also available on the `sharers` property on the popover element (e.g. passed to the `onOpen` callback), for dynamic
+runtime handling.
 
-## Developer friendly
+## Tips
 
-This library's source code (that can be found in the [src](src/) folder) uses ES2015 profusely, including ES2015 module definition and loading.
-This means that, at the moment, its modules can't be `require`d without prior transpilation, but this also mean that this library is ready for
-when environments will finally support ES2015 modules.
-
-The `"module"` property is defined in [package.json](package.json) for those module loaders that support it
-([Rollup](https://github.com/rollup/rollup), for example, which is also used to bundle the library).
-
-Source files for style sheets are also provided in both [LESS](style/less) and [SCSS](style/scss) form.
-
-
-## Browser support
-
-* Chrome/Opera
-* Firefox 52+ (1)
-* Edge
-* Safari 5.1+
-* Internet Explorer 9+
-
-Notes:
-
-1. Firefox below v52 lacks support of the [`selectionchange` event](https://developer.mozilla.org/en-US/docs/Web/Events/selectionchange).
-
-
-## Mobile devices
+### Mobile devices
 
 On mobile browsers, you might not want to have `highlight-share` to interfere with native sharing features, so you might want it disabled. In order
 to it, you might want to do something like this:
 
 ```js
 if (!window.matchMedia
-        || !window.matchMedia("(pointer: coarse)").matches) {
+        || !window.matchMedia('(pointer: coarse)').matches) {
     selectionShare.init();
 }
 ```
 
-(The rationale of this is that the device's primary pointer is "coarse" - that includes touch devices, but also Kinect and WiiMotes - then the
-device *probably* features a native sharing interface. See [CanIUse](http://caniuse.com/#feat=css-media-interaction) for details about Interaction
-Media Features. If the browser doesn't support `window.matchMedia` altogether, then it's *probably* a PC with a mouse/trackpad, so it's fine to
+(Why `pointer: coarse`? If the device's primary pointer is "coarse" — that includes touch devices, but also Kinect and WiiMotes - then the
+device _probably_ features a native sharing interface. See [CanIUse](http://caniuse.com/#feat=css-media-interaction) for details about Interaction
+Media Features. If the browser doesn't support `window.matchMedia` altogether, then it's _probably_ a PC with a mouse/trackpad, so it's fine to
 initialize `highlight-share`.)
 
-Keep in mind that native sharing features let the *device* do the job, using apps or services installed on it, `highlight-share` keep this task on the page, meaning it could offer "sharing" capabilities that the device may not have (e.g.: "save to my account's notes" or "pronounce this using
-voice synthesis"), so you might want to show *both* native and custom sharing interfaces.
+Keep in mind that native sharing features let the _device_ do the job, using apps or services installed on it, `highlight-share` keep this task on the page, meaning it could offer "sharing" capabilities that the device may not have (e.g.: "save to my account's notes" or "pronounce this using
+voice synthesis"), so you might want to show _both_ native and custom sharing interfaces.
 
+### ES2015 (ES6)
+
+This library's source code (that can be found in the [src](src/) folder) uses ES2015 profusely, including ES2015 module definition and loading. Therefore, at the moment, its modules can't be `require`d without prior transpilation. This also mean that this library is ready for when environments will finally support ES2015 modules. :tada:
+
+The `"module"` property is defined in [package.json](package.json) for those module loaders that support it. ([Rollup](https://github.com/rollup/rollup), for example, which is also used to bundle the library).
+
+Source files for style sheets are also provided in both [LESS](style/less) and [SCSS](style/scss) form.
+
+## Browser support
+
+* Chrome/Opera
+* Firefox 52+ (1)
+* Edge
+* Safari 10+ (2)
+* Internet Explorer 9+
+
+Notes:
+
+1. Firefox version 51 and below lacks support of the [`selectionchange` event](https://developer.mozilla.org/en-US/docs/Web/Events/selectionchange).
+1. Safari below v10 lacks support of the [`document.execCommand(copy)` event](https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand#Browser_compatibility). If you aren't using the `copy` sharer, Safari support is version 5.1 and above.
 
 ## To do
 
@@ -216,8 +207,10 @@ voice synthesis"), so you might want to show *both* native and custom sharing in
 * More test coverage
 * Fine-tune Babel
 * Support for JSX in sharers' `render` method
+* Update ESLint rules to use Airbnb package
+
 
 
 ## License
 
-MIT @ Liz Shaw 2016-2017. See [LICENSE](LICENSE).
+MIT @ Liz Shaw 2016-2017. See [LICENSE](LICENSE). Project based on [https://www.npmjs.com/package/share-this](share-this).
