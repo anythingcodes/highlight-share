@@ -8,6 +8,7 @@ Medium-like text selection sharing without dependencies
 [![License Type](https://img.shields.io/github/license/anythingcodes/highlight-share.svg)](https://img.shields.io/github/license/anythingcodes/highlight-share.svg)
 
 <img src="dist/img/demo.gif" alt="Demo of highlight share" />
+
 > Demo from the <a href="http://blog.hubspot.com" target="_blank">HubSpot blog</a>
 
 ## Purpose
@@ -199,7 +200,7 @@ Source files for style sheets are also provided in both [LESS](style/less) and [
 Notes:
 
 1. Firefox version 51 and below lacks support of the [`selectionchange` event](https://developer.mozilla.org/en-US/docs/Web/Events/selectionchange).
-1. Safari below v10 lacks support of the [`document.execCommand(copy)` event](https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand#Browser_compatibility). If you aren't using the `copy` sharer, Safari support is version 5.1 and above.
+1. Safari version 9 and below lacks support of the [`execCommand('copy')` event](https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand#Browser_compatibility). If you aren't using the `copy` sharer, Safari support is version 5.1 and above.
 
 ## To do
 
@@ -213,4 +214,4 @@ Notes:
 
 ## License
 
-MIT @ Liz Shaw 2016-2017. See [LICENSE](LICENSE). Project based on [https://www.npmjs.com/package/share-this](share-this).
+MIT @ Liz Shaw 2017-2018. See [LICENSE](LICENSE). Project based on [share-this](https://www.npmjs.com/package/share-this).
