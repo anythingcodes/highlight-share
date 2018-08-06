@@ -2,10 +2,10 @@
 @import "mixins";
 
 .highlight-share-popover {
-    max-width: @share-this-border-distance * 2;
+    max-width: @highlight-share-border-distance * 2;
     pointer-events: none;
-    .share-this-filter(drop-shadow(0 1px 3px rgba(0, 0, 0, .35)));
-    .share-this-animation(share-this-intro @share-this-animation-length);
+    .highlight-share-filter(drop-shadow(0 1px 3px rgba(0, 0, 0, .35)));
+    .highlight-share-animation(highlight-share-intro @highlight-share-animation-length);
 
     &::before {
         content: "";
@@ -14,30 +14,30 @@
         left: 50%;
         width: 0;
         height: 0;
-        margin: (@share-this-vertical-offset + @share-this-arrow-size) -@share-this-arrow-size;
-        border-width: @share-this-arrow-size @share-this-arrow-size 0;
+        margin: (@highlight-share-vertical-offset + @highlight-share-arrow-size) -@highlight-share-arrow-size;
+        border-width: @highlight-share-arrow-size @highlight-share-arrow-size 0;
         border-style: solid;
-        border-color: @share-this-background transparent;
+        border-color: @highlight-share-background transparent;
     }
 
     > ul {
         pointer-events: auto;
         list-style: none;
         padding: 0;
-        margin: @share-this-vertical-offset - @share-this-arrow-size 0 0;
+        margin: @highlight-share-vertical-offset - @highlight-share-arrow-size 0 0;
         white-space: nowrap;
-        background: @share-this-background;
-        color: @share-this-foreground;
-        border-radius: @share-this-border-radius;
+        background: @highlight-share-background;
+        color: @highlight-share-foreground;
+        border-radius: @highlight-share-border-radius;
         position: absolute;
         left: 50%;
-        .share-this-transform(translate(-50%, -100%));
+        .highlight-share-transform(translate(-50%, -100%));
 
         > li {
             display: inline-block;
-            width: @share-this-sharer-width;
-            height: @share-this-sharer-height;
-            line-height: @share-this-sharer-height;
+            width: @highlight-share-sharer-width;
+            height: @highlight-share-sharer-height;
+            line-height: @highlight-share-sharer-height;
             text-align: center;
 
             > a {
@@ -46,13 +46,13 @@
                 height: 100%;
                 color: inherit;
                 box-sizing: border-box;
-                padding: @share-this-sharer-padding;
+                padding: @highlight-share-sharer-padding;
 
                 &:hover, &:focus {
-                    background: @share-this-highlight-link;
+                    background: @highlight-share-highlight-link;
                 }
                 polyline {
-                    stroke: @share-this-foreground;
+                    stroke: @highlight-share-foreground;
                 }
             }
         }
@@ -60,14 +60,14 @@
 
     @media (pointer: coarse) {
         font-size: 150%;
-        .share-this-on-bottom();
+        .highlight-share-on-bottom();
     }
-    @media (max-width: @share-this-small-devices-max) {
+    @media (max-width: @highlight-share-small-devices-max) {
         left: 0 !important;
         right: 0 !important;
         width: auto !important;
         max-width: none;
-        .share-this-on-bottom();
+        .highlight-share-on-bottom();
 
         > ul {
             left: 0;
@@ -79,7 +79,7 @@
     }
 }
 
-@-webkit-keyframes share-this-intro {
+@-webkit-keyframes highlight-share-intro {
     0% {
         -webkit-transform: translateY(-3em);
         opacity: 0;
@@ -93,7 +93,7 @@
     }
 }
 
-@keyframes share-this-intro {
+@keyframes highlight-share-intro {
     0% {
         transform: translateY(-3em);
         opacity: 0;
