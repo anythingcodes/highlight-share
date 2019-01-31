@@ -47,7 +47,7 @@ define([ 'highlight-share' ], highlightShare => {
 });
 
 // Global
-var highlightShare = window.highlightShare;
+var highlightShare = window.HighlightShare;
 ```
 
 Import any sharers you need:
@@ -146,13 +146,13 @@ The following are the default basic sharers provided by the package:
 
 Site     | File location               | Name        | Global variable
 ---------|-----------------------------|-------------|-----------------------
-Twitter  | `dist/sharers/twitter.js`   | `twitter`   | `highlightShareViaTwitter`
-Facebook | `dist/sharers/facebook.js`  | `facebook`  | `highlightShareViaFacebook`
-Facebook Messenger | `dist/sharers/facebook-messenger.js`  | `facebook-messenger`  | `highlightShareViaFacebookMessenger`
-LinkedIn | `dist/sharers/linked-in.js` | `linked-in` | `highlightShareViaLinkedIn`
-Reddit   | `dist/sharers/reddit.js`    | `reddit`    | `highlightShareViaReddit`
-Email    | `dist/sharers/email.js`     | `email`     | `highlightShareViaEmail`
-Copy    | `dist/sharers/copy.js`     | `copy`     | `highlightShareViaCopy`
+Twitter  | `dist/sharers/twitter.js`   | `twitter`   | `HighlightShareViaTwitter`
+Facebook | `dist/sharers/facebook.js`  | `facebook`  | `HighlightShareViaFacebook`
+Facebook Messenger | `dist/sharers/facebook-messenger.js`  | `facebook-messenger`  | `HighlightShareViaFacebookMessenger`
+LinkedIn | `dist/sharers/linked-in.js` | `linked-in` | `HighlightShareViaLinkedIn`
+Reddit   | `dist/sharers/reddit.js`    | `reddit`    | `HighlightShareViaReddit`
+Email    | `dist/sharers/email.js`     | `email`     | `HighlightShareViaEmail`
+Copy    | `dist/sharers/copy.js`     | `copy`     | `HighlightShareViaCopy`
 
 The list of the sharers is also available on the `sharers` property on the popover element (e.g. passed to the `onOpen` callback), for dynamic
 runtime handling.
